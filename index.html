@@ -15,16 +15,18 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>Namaste React</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="root">
-        <h1>I am outside</h1>
+      <h1>Not Rendered</h1>
     </div>
+    <!-- its a good practice to write Not Rendered here so that whenever your react is not rendered properly then you will 'Not Rendered' in the screen which help you to understand that react not rendering -->
     <!-- <script>
         const heading = document.createElement("h1");
         heading.innerHTML = "Hello World!!";
@@ -32,16 +34,16 @@
         const root = document.getElementById("root");
         root.appendChild(heading);
     </script> -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="./App.js"></script>
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+    <script type="module" src="./src/App.js"></script>
 
-    <div>Hii React</div>
+    <!-- <div>Hii React</div> -->
 
     <!-- Does order of script tag matters ?  Yes -->
     <!-- <script src="./App.js"></script>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
-   <!-- if we keep the above order then will get that React is not defined in App.js file -->
-</body>
+    <!-- if we keep the above order then will get that React is not defined in App.js file -->
+  </body>
 </html>
