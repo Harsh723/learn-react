@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 //import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -19,15 +20,19 @@ const Body = () => {
     );
     const json = await data.json();
 
-    console.log(json);
+    console.log("hello", json);
     //Optional Chaining
-    setListOfRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    setListOfRestaurant(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurant(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   //conditional rendering
   //if (listOfRestaurant.length === 0) return <Shimmer />;
-  console.log("body rendered");
+  console.log("body rendered", listOfRestaurant);
 
   //another way to write conditional rendering is to use ternary operator
   return listOfRestaurant.length === 0 ? (
@@ -73,7 +78,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((res) => (
-          <RestaurantCard key={res.data.id} resData={res} />
+          <Link key={res.info.id} to={"/restuarant/" + res.info.id}>
+            <RestaurantCard resData={res} />
+          </Link>
         ))}
       </div>
     </div>

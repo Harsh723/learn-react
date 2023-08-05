@@ -56,3 +56,9 @@
 .search {
   margin: 10px;
 }
+
+.userClass {
+  border: 2px solid black;
+  padding: 20px;
+  margin-top: 10px;
+}
