@@ -1,30 +1,36 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { MENU_API } from "../utils/constant";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
-
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
   const { restId } = useParams();
+  const resInfo = useRestaurantMenu(restId); // instead of writing long as below , we crrated a custom hook which makes RestaurantMenu component clean
+  //RestaurantMenu comp is not responsible for fetching the data , its only responsibility to show the menu
+  //useRestaurantMenu is responsibility to provide the data
 
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_API + restId);
-    const json = await data.json();
-    console.log("menu", json);
-    setResInfo(json.data);
-  };
+  // const [resInfo, setResInfo] = useState(null);
+
+  //   useEffect(() => {
+  //     fetchMenu();
+  //   }, []);
+
+  //   const fetchMenu = async () => {
+  //     const data = await fetch(MENU_API + restId);
+  //     const json = await data.json();
+  //     console.log("menu", json);
+  //     setResInfo(json.data);
+  //   };
 
   if (resInfo === null) return <Shimmer />;
 
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[0]?.card?.card?.info;
+
   const { itemCards } =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+
   return (
     <div className="menu">
       <h1>{name}</h1>
