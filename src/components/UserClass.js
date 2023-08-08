@@ -41,7 +41,7 @@ class UserClass extends React.Component {
   }
 
   render() {
-    debugger;
+    //debugger;
     console.log(this.props.time + "child render called");
     const { name, location } = this.props;
     const { count } = this.state;
