@@ -1,64 +1,70 @@
-.header {
+/* below 3 lines means importing tailwind in your css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* After writing above 3 lines , we are not going to touch our index.css file ever again */
+
+/* .header {
   display: flex;
   border: 1px solid black;
-  justify-content: space-between;
-}
+  justify-content: space-between; */
 
-.nav-items > ul {
+/* .nav-items > ul {
   display: flex;
   list-style-type: none;
   margin: 23px 0;
-}
+} */
 
-.nav-items > ul > li {
+/* .nav-items > ul > li {
   padding: 10px;
   margin: 10px;
-}
+} */
 
-.res-container {
+/* .res-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  /* grid-template-rows: 320px; */
-  grid-gap: 10px;
-}
+  grid-template-columns: repeat(6, 1fr); */
+/* grid-template-rows: 320px; */
+/* grid-gap: 10px; */
+/* } */
 
-.res-card {
-  padding: 5px;
-  /* width: 200px;
+/* .res-card { */
+/* padding: 5px; */
+/* width: 200px;
   height: 350px; */
-}
+/* } */
 
-.res-card:hover {
+/* .res-card:hover {
   cursor: pointer;
   border: 1px solid black;
-}
-.filter-btn {
+} */
+/* .filter-btn {
   margin: 10px;
   cursor: pointer;
-}
+} */
 
-.shimmer-container {
+/* .shimmer-container {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
-.shimmer-card {
+/* .shimmer-card {
   width: 200px;
   height: 400px;
   margin: 20px;
   background-color: #f0f0f0;
-}
+} */
 
-.filter {
+/* .filter {
   display: flex;
-}
+} */
 
-.search {
+/* .search {
   margin: 10px;
-}
+} */
 
-.userClass {
+/* .userClass {
   border: 2px solid black;
   padding: 20px;
   margin-top: 10px;
-}
+} */
