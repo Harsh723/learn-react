@@ -8,6 +8,9 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 //chunking
 //Code Spliting
@@ -19,33 +22,39 @@ const About = lazy(() => import("./components/About"));
 
 console.log(React); // object
 
-
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
 
-  const [userName, setUserName] =  useState();
-
-  useEffect(()=>{
+  useEffect(() => {
     //make an api call and send username & password
     const data = {
-      name:"Harsh"
-    }
-    console.log("effect callled")
-    setUserName(data.name)
-  },[])
+      name: "Harsh",
+    };
+    console.log("effect callled");
+    setUserName(data.name);
+  }, []);
 
   return (
     //here at this line 35 still loggedInUser value will be default user as store in UserContext will creating it
     //entire app will now have userName as "Harsh" not "Default user"... this is how we update our context value
-    <UserContext.Provider value={{ LoggedInUser: userName, setUserName }}>
+    // <UserContext.Provider value={{ LoggedInUser: userName, setUserName }}>
+    //   <div className="app">
+    //     <UserContext.Provider value={{ LoggedInUser: "Rahul" }}>
+    //       {/* only header will have "Rahul" as LoggedInUser not "Harsh" */}
+    //       <Header />
+    //     </UserContext.Provider>
+    //     {/* <Body /> */}
+    //     <Outlet />
+    //   </div>
+    // </UserContext.Provider>
+
+    //redux concept
+    <Provider store={appStore}>
       <div className="app">
-      <UserContext.Provider value={{ LoggedInUser: "Rahul" }}>
-         {/* only header will have "Rahul" as LoggedInUser not "Harsh" */}
         <Header />
-      </UserContext.Provider>
-        {/* <Body /> */}
         <Outlet />
       </div>
-    </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -91,6 +100,10 @@ const appRouter = createBrowserRouter([
         path: "/restuarant/:restId",
         element: <RestaurantMenu />,
       },
+      {
+        path: "/cart",
+        element: <Cart />
+      }
     ],
     errorElement: <Error />,
   },

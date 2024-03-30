@@ -3,11 +3,19 @@ import { LOGO_URL } from "../utils/constant";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const { LoggedInUser } = useContext(UserContext); // this how we consume the context data using useContext hook
+
+  // Subscribing to the store using a selector and read the data from the store using a selector
+  const cartItems = useSelector((store) => store.cart.items); //this hook will gives us access to the redux store
+  console.log("cartItems", cartItems) //now we will tell this selector what portion of redux store we need access to read the data
+  //here we just need access to cart items 
+  //in other words we can say that here we are just subscribing to the small portion of redux store which is cart.items
+  //Whenever cart.items will modify then our local cartItems will modify
 
   return (
     <div className="flex justify-between">
@@ -26,7 +34,9 @@ const Header = () => {
           <li className="p-4">
             <Link to="/contact">Contact us</Link>
           </li>
-          <li className="p-4" >Cart</li>
+          <li className="p-4">
+            <Link to="/cart">Cart-({cartItems.length} items)</Link>
+          </li>
           <li>UserName: {LoggedInUser} </li>
         </ul>
       </div>

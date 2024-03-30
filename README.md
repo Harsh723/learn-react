@@ -32,3 +32,12 @@ Design
 -HTTPS
 -Tree Shaking - remove unused code
 -Different dev and prod bundles
+
+
+#Redux toolkit
+- install @reduxjs/toolkit react-redux
+- Build our store
+- connect our store to our app
+- create Slice(cartSlice)
+- dispatch(action)
+- Selector
