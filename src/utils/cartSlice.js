@@ -20,7 +20,7 @@ const cartSlice = createSlice({ // this fn takes some configuration
             // newState.items.push(action.payload)
             // return newState 
 	    //Note -> "Mutable" means "changeable". If something is "immutable", it can never be changed.
-        https://supertokens.com/blog/why-is-redux-state-immutable#:~:text=Immutability%20of%20redux%20state%20is,becomes%20the%20new%20redux%20state.
+        //https://supertokens.com/blog/why-is-redux-state-immutable#:~:text=Immutability%20of%20redux%20state%20is,becomes%20the%20new%20redux%20state.
 
 	    //many developer doesnt know how to write a immutable object ? -- go read about it and practice	
             //immutable - https://www.freecodecamp.org/news/javascript-immutability-frozen-objects-with-examples/

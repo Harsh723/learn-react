@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
@@ -26,7 +25,7 @@ const RestaurantMenu = () => {
   //   };
 
   if (resInfo === null) return <Shimmer />;
-  console.log("menuu", resInfo)
+  //console.log("menuu", resInfo)
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[2]?.card?.card?.info;
 
@@ -37,7 +36,7 @@ const RestaurantMenu = () => {
     c=> c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   )
 
-  console.log("cate", categories)
+  //console.log("cate", categories)
 
   return (
     <div className="text-center">

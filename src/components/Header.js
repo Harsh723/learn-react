@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constant";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
+
+  const [ btnNameReact, setBtnNameReact ] = useState("Login");
+
   const onlineStatus = useOnlineStatus();
 
   const { LoggedInUser } = useContext(UserContext); // this how we consume the context data using useContext hook
@@ -37,6 +40,15 @@ const Header = () => {
           <li className="p-4">
             <Link to="/cart">Cart-({cartItems.length} items)</Link>
           </li>
+          <button
+            onClick={() => {
+              btnNameReact === "Login"
+                ? setBtnNameReact("Logout")
+                : setBtnNameReact("Login")
+            }}
+          >
+            {btnNameReact}
+          </button>
           <li>UserName: {LoggedInUser} </li>
         </ul>
       </div>

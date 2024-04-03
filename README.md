@@ -41,3 +41,20 @@ Design
 - create Slice(cartSlice)
 - dispatch(action)
 - Selector
+
+# Types of testing a developer can do :
+  - Unit Testing
+  - Integration Testing
+  - End to End Testing - e2e testing
+
+ # Setting up testing in our app
+  - Install React Testing Library
+  - Installed jest
+  - Install Babel dependecies
+  - Configure Babel
+  - Configure parcel config file to disable default babel transpilation in parcel
+  - jest configuration (npx jest --init)
+  - install jsdom library
+  - install @babel/preset-react - to make JSX work in test cases
+  - Include @babel/preset-react inside my babel config
+  - Install @testing-library/jest-dom to make my toBeInTheDocument() to work as this package provides this method

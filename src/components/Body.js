@@ -47,7 +47,7 @@ const Body = () => {
 
   //conditional rendering
   //if (listOfRestaurant.length === 0) return <Shimmer />;
-  console.log("body rendered", listOfRestaurant);
+  //console.log("body rendered", listOfRestaurant);
 
   //another way to write conditional rendering is to use ternary operator
   return listOfRestaurant.length === 0 ? (
@@ -58,6 +58,7 @@ const Body = () => {
         <div className="m-4 p-4">
           <input
             type="text"
+            data-testid="searchInput"
             className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
@@ -71,7 +72,7 @@ const Body = () => {
               const filterRestaurant = listOfRestaurant.filter(
                 (res) =>
                   //res.data.name.includes(searchText) - this will not work for all the cases and people generally stuck here
-                  res.data.name.toLowerCase().includes(searchText.toLowerCase()) // better way
+                  res?.info?.name.toLowerCase().includes(searchText.toLowerCase()) // better way
                 //incase of empty text how inclues returning true for all the cases ?
               );
               setFilteredRestaurant(filterRestaurant);
@@ -106,9 +107,9 @@ const Body = () => {
         {filteredRestaurant.map((res) => (
           <Link key={res.info.id} to={"/restuarant/" + res.info.id}>
             {res.info.isOpen ? (
-              <RestaurantCardWithPromoted resData={res} />
+              <RestaurantCardWithPromoted resData={res?.info} />
             ) : (
-              <RestaurantCard resData={res} />
+              <RestaurantCard resData={res?.info} />
             )
             }    
           </Link>
